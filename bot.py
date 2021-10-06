@@ -91,9 +91,8 @@ async def home(client, message):
   await Tgraph.send_message(
         chat_id=message.chat.id,
         text="""<b>👋 Hey ciao, 
-              
-Inviami foto, video o gif da caricare su Telegra.ph
-        
+      
+👉🏻 Invia un media a questo bot per ricevere il link Telegra.ph.        
 💥 Bot By @cusciproject</b> 💥""",
         reply_markup=reply_markup,
         parse_mode="html",
@@ -112,9 +111,7 @@ async def help(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""Non c'è niente da sapere di più,
-        
-Inviami un video/gif/foto fino a 5 MB.
+        text="""Inviami un video/gif/foto fino a 5 MB.     
 
 lo caricherò su telegra.ph e ti darò il link diretto""",
         reply_markup=reply_markup,
