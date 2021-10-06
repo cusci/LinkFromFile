@@ -81,20 +81,20 @@ async def uploadvid(client, message):
 @Tgraph.on_message(filters.command(["start"]))
 async def home(client, message):
   buttons = [[
-        InlineKeyboardButton('Aiuto', callback_data='help'),
+        InlineKeyboardButton('⛑ Aiuto ⛑', callback_data='help'),
         InlineKeyboardButton('Chiudi', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Channel', url='http://telegram.me/cusciproject'),
+        InlineKeyboardButton('Canale', url='http://telegram.me/cusciproject'),
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""<b>Hey ciao,
+        text="""<b>👋 Hey ciao, 
               
-Inviami semplicemente foto, video o gif da caricare su Telegra.ph
+Inviami foto, video o gif da caricare su Telegra.ph
         
-Bot By @cusciproject</b>""",
+💥 Bot By @cusciproject</b> 💥""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
