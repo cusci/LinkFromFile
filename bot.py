@@ -90,7 +90,7 @@ async def home(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""<b>👋 Hey ciao    
+        text="""<b>👋 Hey ciao {m.from_user.mention}    
 👉🏻 Invia un media per ricevere il link Telegra.ph        
 💥 Bot By @cusciproject</b>""",
         reply_markup=reply_markup,
