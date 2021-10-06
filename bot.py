@@ -31,11 +31,11 @@ Tgraph = Client(
 
 @Tgraph.on_message(filters.photo)
 async def uploadphoto(client, message):
-  msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+  msg = await message.reply_text("`Creazione in corso`")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+  await msg.edit_text("`Creazione in corso.....`")
   try:
     tlink = upload_file(img_path)
   except:
@@ -47,11 +47,11 @@ async def uploadphoto(client, message):
 @Tgraph.on_message(filters.animation)
 async def uploadgif(client, message):
   if(message.animation.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    msg = await message.reply_text("`Creazione in corso`")
     userid = str(message.chat.id)
     gif_path = (f"./DOWNLOADS/{userid}.mp4")
     gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+    await msg.edit_text("`Creazione in corso.....`")
     try:
       tlink = upload_file(gif_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
@@ -64,11 +64,11 @@ async def uploadgif(client, message):
 @Tgraph.on_message(filters.video)
 async def uploadvid(client, message):
   if(message.video.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    msg = await message.reply_text("`Creazione in corso`")
     userid = str(message.chat.id)
     vid_path = (f"./DOWNLOADS/{userid}.mp4")
     vid_path = await client.download_media(message=message, file_name=vid_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+    await msg.edit_text("`Creazione in corso.....`")
     try:
       tlink = upload_file(vid_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
@@ -81,8 +81,8 @@ async def uploadvid(client, message):
 @Tgraph.on_message(filters.command(["start"]))
 async def home(client, message):
   buttons = [[
-        InlineKeyboardButton('Help', callback_data='help'),
-        InlineKeyboardButton('Close', callback_data='close')
+        InlineKeyboardButton('Aiuto', callback_data='help'),
+        InlineKeyboardButton('Chiudi', callback_data='close')
     ],
     [
         InlineKeyboardButton('Channel', url='http://telegram.me/cusciproject'),
@@ -104,19 +104,19 @@ Bot By @cusciproject</b>""",
 async def help(client, message):
   buttons = [[
         InlineKeyboardButton('Home', callback_data='home'),
-        InlineKeyboardButton('Close', callback_data='close')
+        InlineKeyboardButton('Chiudi', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Our Channel', url='http://telegram.me/indusbots')
+        InlineKeyboardButton('Canale', url='http://telegram.me/cusciproject')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""There Is Nothung To KnowMore,
+        text="""Non c'è niente da sapere di più,
         
-Just Send Me A Video/gif/photo Upto 5mb.
+Inviami un video/gif/foto fino a 5 MB.
 
-i'll upload ut to telegra.ph and give you the direct link""",
+lo caricherò su telegra.ph e ti darò il link diretto""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
