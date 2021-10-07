@@ -81,11 +81,11 @@ async def uploadvid(client, message):
 @Tgraph.on_message(filters.command(["start"]))
 async def home(client, message):
   buttons = [[
-        InlineKeyboardButton('⛑ Aiuto ⛑', callback_data='help'),
-        InlineKeyboardButton('Chiudi', callback_data='close')
+        InlineKeyboardButton('📌 Aiuto 📌', callback_data='help'),
+        InlineKeyboardButton('✖️ Chiudi ✖', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Canale', url='http://telegram.me/cusciproject'),
+        InlineKeyboardButton('📣 Canale 📣', url='http://telegram.me/cusciproject'),
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
@@ -101,11 +101,11 @@ async def home(client, message):
 @Tgraph.on_message(filters.command(["help"]))
 async def help(client, message):
   buttons = [[
-        InlineKeyboardButton('Home', callback_data='home'),
-        InlineKeyboardButton('Chiudi', callback_data='close')
+        InlineKeyboardButton('🏠 Home 🏠', callback_data='home'),
+        InlineKeyboardButton('✖️ Chiudi ✖', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Canale', url='http://telegram.me/cusciproject')
+        InlineKeyboardButton('📣 Canale 📣', url='http://telegram.me/cusciproject')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
