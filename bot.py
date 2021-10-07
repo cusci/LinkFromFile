@@ -31,11 +31,11 @@ Tgraph = Client(
 
 @Tgraph.on_message(filters.photo)
 async def uploadphoto(client, message):
-  msg = await message.reply_text("Creazione in corso")
+  msg = await message.reply_text("⏳ Creazione in corso ⌛️")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("Creazione in corso.....")
+  await msg.edit_text("⏳ Creazione in corso.....⌛️")
   try:
     tlink = upload_file(img_path)
   except:
@@ -47,11 +47,11 @@ async def uploadphoto(client, message):
 @Tgraph.on_message(filters.animation)
 async def uploadgif(client, message):
   if(message.animation.file_size < 5242880):
-    msg = await message.reply_text("`Creazione in corso`")
+    msg = await message.reply_text("⏳ Creazione in corso ⌛️")
     userid = str(message.chat.id)
     gif_path = (f"./DOWNLOADS/{userid}.mp4")
     gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("`Creazione in corso.....`")
+    await msg.edit_text("⏳ Creazione in corso.....⌛️")
     try:
       tlink = upload_file(gif_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
