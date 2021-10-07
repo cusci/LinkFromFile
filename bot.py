@@ -31,11 +31,11 @@ Tgraph = Client(
 
 @Tgraph.on_message(filters.photo)
 async def uploadphoto(client, message):
-  msg = await message.reply_text("`Creazione in corso`")
+  msg = await message.reply_text("Creazione in corso")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`Creazione in corso.....`")
+  await msg.edit_text("Creazione in corso.....")
   try:
     tlink = upload_file(img_path)
   except:
@@ -64,11 +64,11 @@ async def uploadgif(client, message):
 @Tgraph.on_message(filters.video)
 async def uploadvid(client, message):
   if(message.video.file_size < 5242880):
-    msg = await message.reply_text("`Creazione in corso`")
+    msg = await message.reply_text("⏳ Creazione in corso ⌛️")
     userid = str(message.chat.id)
     vid_path = (f"./DOWNLOADS/{userid}.mp4")
     vid_path = await client.download_media(message=message, file_name=vid_path)
-    await msg.edit_text("`Creazione in corso.....`")
+    await msg.edit_text("⏳ Creazione in corso.....⌛️")
     try:
       tlink = upload_file(vid_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
@@ -90,8 +90,10 @@ async def home(client, message):
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""<b>👋 Hey ciao    
-👉🏻 Invia un media per ricevere il link Telegra.ph        
+        text="""<b>👋 Hey ciao 
+        
+👉🏻 Invia un media per ricevere il link Telegra.ph  
+
 💥 Bot By @cusciproject</b>""",
         reply_markup=reply_markup,
         parse_mode="html",
